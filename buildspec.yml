@@ -1,0 +1,10 @@
+version: 0.2
+env:
+  #variables:
+    #MAIL_SERVER: 'smtp.gmail.com'
+phases:
+  install:
+    runtime-versions:
+      python: 3.10
+    commands:
+      - pip install flask
