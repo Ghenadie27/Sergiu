@@ -8,3 +8,6 @@ phases:
       python: 3.9
     commands:
       - pip install flask
+artifacts:
+  files:
+    - '**/*'
