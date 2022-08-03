@@ -1,0 +1,297 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="static/images/fav_casa.jpg"/>
+
+    <title>CONTRACTORS IN PARIS</title>
+
+    <link rel="stylesheet" href="static/css/vendor.css">
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/fonts/font-awesome/css/font-awesome.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+    <!-- harta -->
+     <style>
+    #map {
+        height: 400px;
+        /* The height is 400 pixels */
+        width: 100%;
+        /* The width is the width of the web page */
+      }
+    </style>
+    <script>
+      function initMap() {
+        const sibiu = { lat: 45.792088, lng: 24.214124 };
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 12,
+          center: sibiu,
+        });
+        const marker = new google.maps.Marker({
+          position: sibiu,
+          map: map,
+        });
+      }
+    </script>
+    <!-- harta -->
+</head>
+
+<body style="background-color:#eee;" data-spy="scroll" data-target="#header-navbar" data-offset="140">
+
+
+<div id="page-start-anchor"></div>
+
+<!-- header start -->
+
+<section class="header header-fixed-xl">
+    <div class="header-top-line bg-primary">
+        <div class="container">
+            <div class="row">
+                <nav class="navbar navbar-expand navbar-dark navbar-short justify-content-between w-100">
+                    <ul class="navbar-nav">
+
+                                    <!--Spatiu pentru un navbar in stanga footerului daca e nevoie-->
+
+                                            </ul>
+                                        <span class="navbar-text text-uppercase d-flex align-items-center">
+                        <span class="text-white-70 mr-1">Call us today:</span>
+                        <span class="text-white mr-1">+373 123-456-7890</span>
+                        <i class="material-icons fs-1">phone</i>
+                    </span>
+                                    </nav>
+            </div>
+        </div>
+    </div>
+    <div class="header-main bg-white">
+        <div class="container">
+            <div class="row">
+                <nav class="navbar navbar-expand-lg navbar-light w-100" id="header-navbar">
+                    <a class="navbar-brand font-weight-bold" href ="{{url_for('index')}}">LOGO</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto">
+
+                                                       <li class="nav-item">
+                                <a class="nav-link text-uppercase "
+                                   href ="{{url_for('index')}}">
+                                    HOME
+                                                                    </a>
+                            </li>
+                                                    </ul>
+                                            </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- header end -->
+
+
+<!-- "contacts" section start -->
+<section id="contacts">
+
+       <div class="container">
+        <div class="section-content container">
+            <div class="text-center">
+
+                <small class="fs-1 font-family-secondary text-uppercase font-weight-bold letter-spacing-caption text-muted">
+                    We answer within 24 hours
+                </small>
+                <h1>Contact Us</h1>
+            </div>
+
+
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <!-- "alert" section start -->
+                    {% if success %}
+                    <div class="text-center">
+                        <div class="alert alert-success" role="alert">
+                            Your message has been sent successfully!
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% if faulthandler %}
+                    <div class="text-center">
+                         <div class="alert alert-danger" role="alert">
+                         All Form Fields Required...!
+                         </div>
+                    </div>
+                    {% endif %}
+                    <!-- "alert" section end -->
+                    <form action="#" class="row mt-17" method="POST">
+
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label for="first_name" class="form-label">First name</label>
+                                <input type="text" class="form-control" id="first_name" name = 'first_name' value="{{ first_name }}"/>
+
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label for="last_name" class="form-label">Last name</label>
+                                <input type="text" class="form-control" id="last_name" name = 'last_name' value="{{ last_name }}"/>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label for="phone" class="form-label">Phone</label>
+                                <input type="text" class="form-control" id="phone" name = 'phone' value="{{ phone }}"/>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="text" class="form-control" id="email" name = 'email' value="{{ email }}"/>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label for="service" class="form-label">Select the service</label>
+                                <select class="custom-select" id="service" name="service" value="{{ service }}">
+                                    <option value="1">Kitchen Remodeling</option>
+                                    <option value="2">Bathroom Remodeling</option>
+                                    <option value="3">Roofing</option>
+                                    <option value="4">Windows & Doors</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label for="zip-code" class="form-label">Your zip code</label>
+                                <input type="text" class="form-control" id="zip-code" name = 'zip_code' value="{{ zip_code }}"/>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea id="message" class="form-control" rows="3" name = 'message' value="{{ message }}"></textarea>
+
+                            </div>
+                        </div>
+                        <div class="col-12 d-flex justify-content-between align-items-center flex-column flex-md-row">
+                            <div class="form-group form-check mb-9 mb-md-0">
+                                <input type="checkbox" class="custom-checkbox" id="exampleCheck2" checked/>
+                                <label class="form-check-label" for="exampleCheck2">
+                                    I've read and agree with the <a href="#">Terms & Policy</a>
+                                </label>
+                            </div>
+                            <div class="form-group mb-0">
+                                <button class="btn btn-primary btn-lg">Send message</button>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container py-19 py-lg-20">
+        <div class="row vertical-divider-light">
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card border-0">
+                    <div class="card-body py-17 px-10 text-center">
+                        <div class="card-icon mb-6"><i class="material-icons">location_on</i></div>
+                        <div class="fs-1 lh-1 my-5 font-family-secondary text-uppercase font-weight-bold letter-spacing-caption text-muted">
+                            By appointment only
+                        </div>
+                        <p class="mb-0 text-body">Paris, France</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card border-0">
+                    <div class="card-body py-17 px-10 text-center">
+                        <div class="card-icon mb-6"><i class="material-icons">phone</i></div>
+                        <div class="fs-1 lh-1 my-5 font-family-secondary text-uppercase font-weight-bold letter-spacing-caption text-muted">
+                            Mobile phone
+                        </div>
+                        <p class="mb-0 text-body">+373 123 45 67</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card border-0">
+                    <div class="card-body py-17 px-10 text-center">
+                        <div class="card-icon mb-6"><i class="material-icons">access_time</i></div>
+                        <div class="fs-1 lh-1 my-5 font-family-secondary text-uppercase font-weight-bold letter-spacing-caption text-muted">
+                            Program
+                        </div>
+                        <p class="mb-0 text-body">11:00 AM - 9:00 PM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card border-0">
+                    <div class="card-body py-17 px-10 text-center">
+                        <div class="card-icon mb-6"><i class="material-icons">alternate_email</i></div>
+                        <div class="fs-1 lh-1 my-5 font-family-secondary text-uppercase font-weight-bold letter-spacing-caption text-muted">
+                            Email
+                        </div>
+                        <p class="mb-0 text-body">contractors@mail.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="map"></div>
+
+</section>
+<!-- "contacts" section end -->
+
+<!-- footer start -->
+<section class="footer bg-secondary">
+    <div class="container py-19 py-sm-23 py-lg-25">
+        <div class="row align-items-center">
+            <div class="col-12 col-md-6 col-lg-5 mb-14 mb-md-0">
+                <div class="d-flex align-items-center justify-content-center justify-content-md-start">
+                    <a href="{{url_for('index')}}" class="footer-brand">LOGO</a>
+                    <div class="brand-icons-list ml-10 ml-sm-20">
+                        <a href="#" class="brand-icon brand-icon-circle brand-icon-facebook">
+                            <i class="fa fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="brand-icon brand-icon-circle brand-icon-twitter">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                        <a href="#" class="brand-icon brand-icon-circle brand-icon-pinterest">
+                            <i class="fa fa-pinterest-p"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-2 text-center d-none d-lg-block">
+                <a href="#" class="footer-icon" data-toggle="smooth-scroll" data-target="#page-start-anchor"><i
+                        class="material-icons">arrow_upward</i></a>
+            </div>
+            <div class="col-12 col-md-6 col-lg-5 text-center text-md-right">
+                <ul class="footer-menu">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- footer end -->
+
+
+<script src="static/js/app.js"></script>
+<script src="static/js/header.js"></script>
+<script src="static/js/smooth-scroll.js"></script>
+
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyByepVY6Ax8H2p2Ct0C6_Nl1t3ys87U_Ts&callback=initMap&libraries=&v=weekly" async></script>
+</body>
+</html>
