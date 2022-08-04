@@ -1,5 +1,5 @@
 version: 0.2
-env:
+#env:
   #variables:
     #MAIL_SERVER: 'smtp.gmail.com'
 phases:
