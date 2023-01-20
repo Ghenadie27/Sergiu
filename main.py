@@ -7,8 +7,8 @@ app.secret_key = "hello"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 
-#app.config['DEBUG'] = True
-#app.config['TESTING'] = False
+app.config['DEBUG'] = True
+app.config['TESTING'] = False
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
 #app.config['MAIL_USE_TLS'] = False
