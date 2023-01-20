@@ -6,7 +6,7 @@ app = Flask(__name__)
 app.secret_key = "hello"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
-
+#check the branch
 app.config['DEBUG'] = True
 app.config['TESTING'] = False
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
