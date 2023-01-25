@@ -6,7 +6,7 @@ app = Flask(__name__)
 app.secret_key = "hello"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
-#check the branch
+
 app.config['DEBUG'] = True
 app.config['TESTING'] = False
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
@@ -14,9 +14,9 @@ app.config['MAIL_PORT'] = 465
 #app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 # app.config['MAIL_DEBUG'] = True
-app.config['MAIL_USERNAME'] = 'pharmamix27@gmail.com'
-app.config['MAIL_PASSWORD'] = 'Carnitin_427'
-app.config['MAIL_DEFAULT_SENDER'] = 'pharmamix27@gmail.com'
+app.config['MAIL_USERNAME'] = 'pharmamix@gmail.com'
+app.config['MAIL_PASSWORD'] = 'Car_4'
+app.config['MAIL_DEFAULT_SENDER'] = 'pharmamix@gmail.com'
 app.config['MAIL_MAX_EMAILS'] = None
 # app.config['MAIL_SUPPRESS_SEND'] = False
 app.config['MAIL_ASCII_ATTACHMENTS'] = False
