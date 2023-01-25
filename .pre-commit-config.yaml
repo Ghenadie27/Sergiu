@@ -4,3 +4,4 @@ repos:
   hooks:
     - id: no-commit-to-branch
       args: ['--branch', 'master']
+
