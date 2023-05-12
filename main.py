@@ -54,8 +54,11 @@ def contact():
 
             msg_1 = Message(subject=f"Mail from {email}",
                             body=f"Name: {first_name, last_name}\nE-mail:"
-                                                               f"{email}\nPhone: {phone} Zip code: {zip_code}\n"
-                                                               f"Service: {service}\n\n{message}",
+                                                               f"{email}"
+                                 f"\nPhone: {phone}"
+                                 f" Zip code: {zip_code}\n"
+                                                               f"Service: {service}\n"
+                                 f"\n{message}",
                             sender="pharmamix27@gmail.com",
                             recipients=["pharmamix27@gmail.com"])
             mail.send(msg_1)
