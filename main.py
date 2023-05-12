@@ -1,15 +1,17 @@
 from flask import Flask, redirect, url_for, render_template, request, flash
 from flask_mail import Mail, Message
 
+
 app = Flask(__name__)
 app.secret_key = "hello"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+
 
 app.config['DEBUG'] = True
 app.config['TESTING'] = False
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
-# app.config['MAIL_USE_TLS'] = False
+#app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 # app.config['MAIL_DEBUG'] = True
 app.config['MAIL_USERNAME'] = 'pharmamix@gmail.com'
@@ -39,7 +41,7 @@ def contact():
         message = request.form.get('message')
 
         if not first_name or not last_name or not phone or not email or not zip_code or not message:
-            # flash("All Form Fields Required...")
+            #flash("All Form Fields Required...")
             return render_template('contact.html', faulthandler=True)
         else:
             msg = Message(subject="Contractors",
@@ -65,5 +67,5 @@ def gallery():
 
 
 if __name__ == "__main__":
-    # app.run(debug=True)
+    app.run(debug=True)
     app.run(host='0.0.0.0')
