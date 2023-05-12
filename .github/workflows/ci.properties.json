@@ -1,0 +1,13 @@
+{
+    "name": "Ghena Workflow",
+    "description": "Ghena CI starter workflow.",
+    "iconName": "example-icon",
+    "categories": [
+        "Go"
+    ],
+    "filePatterns": [
+        "package.json$",
+        "^Dockerfile",
+        ".*\\.md$"
+    ]
+}
