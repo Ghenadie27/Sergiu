@@ -23,7 +23,6 @@ app.config['MAIL_ASCII_ATTACHMENTS'] = False
 
 mail = Mail(app)
 
-
 @app.route("/")
 def index():
     return render_template('index.html')
