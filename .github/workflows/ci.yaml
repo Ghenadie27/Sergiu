@@ -22,7 +22,7 @@ jobs:
           filters: |
               src:
                 - 'src/.github/workflows'
-      - if: steps.changes.outputs.src == 'true'
+      #- if: steps.changes.outputs.src == 'true'
       #- name: Install dependencies
         run: |
           python -m pip install --upgrade pip
