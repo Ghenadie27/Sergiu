@@ -1,8 +1,8 @@
 name: Ghena CI
 on:
   push:
-    paths-ignore:
-      - "venv/**"
+    #paths-ignore:
+      #- "venv/**"
 jobs:
   build:
     name: python test
@@ -11,14 +11,14 @@ jobs:
       matrix:
         python-version: ["3.9", "3.10", "3.11"]
     steps:
-#      - name: Check filter
-#        uses: dorny/paths-filter@v2
-#        id: changes
-#        with:
-#           filters: |
-#              src:
-#                - 'sergiu/.github/**'
-        #- if: steps.changes.outputs.src == 'true'
+      - name: Check filter
+        uses: dorny/paths-filter@v2
+        id: changes
+        with:
+           filters: |
+              src:
+                - 'sergiu/.github/**'
+      - if: steps.changes.outputs.src == 'true'
       - uses: actions/checkout@v3
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v4
