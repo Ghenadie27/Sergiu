@@ -40,17 +40,20 @@ def contact():
         service = request.form.get("service")
         message = request.form.get('message')
 
-        if not first_name or not last_name or not phone or not email or not zip_code or not message:
+        if not first_name or not last_name \
+                or not phone or not email or not zip_code or not message:
             #flash("All Form Fields Required...")
             return render_template('contact.html', faulthandler=True)
         else:
             msg = Message(subject="Contractors",
                           sender="pharmamix27@gmail.com",
                           recipients=[f"{email}"])
-            msg.body = f"Dear {first_name},\nThank you for interest in our services! We will get back to you as soon as possible."
+            msg.body = f"Dear {first_name},\nThank you for interest in our services! " \
+                       f"We will get back to you as soon as possible."
             mail.send(msg)
 
-            msg_1 = Message(subject=f"Mail from {email}", body=f"Name: {first_name, last_name}\nE-mail:"
+            msg_1 = Message(subject=f"Mail from {email}",
+                            body=f"Name: {first_name, last_name}\nE-mail:"
                                                                f"{email}\nPhone: {phone} Zip code: {zip_code}\n"
                                                                f"Service: {service}\n\n{message}",
                             sender="pharmamix27@gmail.com",
