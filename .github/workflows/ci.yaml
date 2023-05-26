@@ -18,9 +18,10 @@ jobs:
       - name: Check filter
         uses: dorny/paths-filter@v2
         id: changes
-        filters: |
-            src:
-              - 'src/.github/workflows'
+        with:
+          filters: |
+              src:
+                - 'src/.github/workflows'
       #- if: steps.changes.outputs.src == 'true'
       - name: Install dependencies
         run: |
