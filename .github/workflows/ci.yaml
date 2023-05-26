@@ -2,10 +2,8 @@ name: Ghena CI
 
 on:
   push:
-    branches:
-      - main
-    #paths-ignore:
-      #- "venv/**"
+    paths-ignore:
+      - ".github/**"
 jobs:
   build:
     name: python test
