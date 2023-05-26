@@ -16,7 +16,7 @@ jobs:
         with:
            filters: |
               src:
-                - 'src/sergiu/.github/workflows'
+                - 'sergiu/.github/**'
         #- if: steps.changes.outputs.src == 'true'
       - uses: actions/checkout@v3
       - name: Set up Python ${{ matrix.python-version }}
