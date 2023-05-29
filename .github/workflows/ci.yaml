@@ -27,8 +27,8 @@ jobs:
     # run only if not 'workflows' files were changed
     - name: not workflow tests
       if: steps.filter.outputs.workflows != 'true'
-      with:
-        python-version: ${{ matrix.python-version }}
+#      with:
+#        python-version: ${{ matrix.python-version }}
       run: |
         echo "NOT workflow file"
         python -m pip install --upgrade pip
