@@ -9,7 +9,7 @@ jobs:
       output1: ${{ steps.filter.outputs.workflows }}
     strategy:
           matrix:
-            python-version: ["3.9", "3.10"]
+            python-version: ["3.9", "3.10", "3.10"]
     steps:
     - uses: actions/checkout@v2
     - uses: dorny/paths-filter@v2
