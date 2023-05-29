@@ -1,24 +1,30 @@
 name: Ghena CI
 on:
   push:
+    #- 'project1/subproject1/**/*'
     #paths-ignore:
       #- "venv/**"
 jobs:
   build:
     name: python test
     runs-on: ubuntu-latest
+    outputs:
+      output1: ${{ steps.filter.outputs.workflows }}
     strategy:
       matrix:
         python-version: ["3.9", "3.10", "3.11"]
     steps:
+      - uses: actions/checkout@v2
       - name: Check filter
         uses: dorny/paths-filter@v2
         id: changes
         with:
            filters: |
               src:
-                - 'sergiu/.github/**'
+                - '.github/**'
+        # run only if 'workflows' files were changed
         if: steps.changes.outputs.src == 'true'
+        run: echo "Workflow file"
       - uses: actions/checkout@v3
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v4
@@ -39,3 +45,7 @@ jobs:
       - name: Test with pytest
         run: |
           pytest
+      # run only if not 'workflows' files were changed
+      - name: not workflow tests
+        if: steps.filter.outputs.workflows != 'true'
+        run: echo "NOT workflow file"
