@@ -23,8 +23,9 @@ jobs:
               src:
                 - '.github/**'
         # run only if 'workflows' files were changed
+      - name: workflow tests
         if: steps.changes.outputs.src == 'true'
-        #run: echo "Workflow file"
+        run: echo "Workflow file"
       - uses: actions/checkout@v3
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v4
