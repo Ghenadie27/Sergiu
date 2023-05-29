@@ -1,6 +1,6 @@
-name: Paths Filter Example
+name: Paths Filter
 
-on: [push, workflow_dispatch]
+on: [push]
 
 jobs:
   paths-filter:
@@ -26,7 +26,7 @@ jobs:
     # run only if not 'workflows' files were changed
     - name: not workflow tests
       if: steps.filter.outputs.workflows != 'true'
-
+      run: echo "NOT workflow file"
     - name: Checkout@v3
       uses: actions/checkout@v3
     - name: Set up Python ${{ matrix.python-version }}
