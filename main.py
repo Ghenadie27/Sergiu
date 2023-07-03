@@ -28,6 +28,7 @@ def index():
     return render_template('index.html')
 
 
+#main route
 @app.route("/contact", methods=['GET', 'POST'])
 def contact():
     if request.method == 'POST':
