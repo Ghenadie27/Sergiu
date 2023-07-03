@@ -21,7 +21,7 @@ jobs:
             - '.github/workflows/**'
     # run only if 'workflows' files were changed
     - name: workflow tests
-      if: steps.filter.outputs.workflows == 'true'
+      if: ${{ github.actor }} == 'Ghenadie27'
       run: echo "Workflow file"
 
     # run only if not 'workflows' files were changed
@@ -38,6 +38,52 @@ jobs:
         ruff --format=github --select=E9,F63,F7,F82 --target-version=py37 .
         # default set of ruff rules with GitHub Annotations
         ruff --format=github --target-version=py37 .
+        
+
+#           Checking a change into a directory
+
+#name: Paths Filter
+#run-name: ${{ github.actor }} is learning GitHub Actions
+#on: [push]
+#
+#jobs:
+#  paths-filter:
+#    runs-on: ubuntu-latest
+#    outputs:
+#      output1: ${{ steps.filter.outputs.workflows }}
+#    strategy:
+#          matrix:
+#            python-version: ["3.9", "3.10", "3.11"]
+#    steps:
+#    - uses: actions/checkout@v3
+#    - uses: actions/setup-python@v4
+#    - uses: dorny/paths-filter@v2
+#      id: filter
+#      with:
+#        filters: |
+#          workflows:
+#            - '.github/workflows/**'
+#    # run only if 'workflows' files were changed
+#    - name: workflow tests
+#      if: steps.filter.outputs.workflows == 'true'
+#      run: echo "Workflow file"
+#
+#    # run only if not 'workflows' files were changed
+#    - name: not workflow tests
+#      if: steps.filter.outputs.workflows != 'true'
+##      with:
+##        python-version: ${{ matrix.python-version }}
+#      run: |
+#        echo "NOT workflow file"
+#        python -m pip install --upgrade pip
+#        pip install ruff pytest
+#        # if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+#        # stop the build if there are Python syntax errors or undefined names
+#        ruff --format=github --select=E9,F63,F7,F82 --target-version=py37 .
+#        # default set of ruff rules with GitHub Annotations
+#        ruff --format=github --target-version=py37 .
+
+
 
 #    - name: Checkout@v3
 #      uses: actions/checkout@v3
