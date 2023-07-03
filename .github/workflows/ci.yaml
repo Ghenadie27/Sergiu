@@ -3,24 +3,18 @@ run-name: ${{ github.actor }}
 on: [push]
 
 jobs:
-  paths-filter:
+  build:
     runs-on: ubuntu-latest
-    outputs:
-      output1: ${{ steps.filter.outputs.workflows }}
     strategy:
           matrix:
             python-version: ["3.9", "3.10", "3.11"]
     steps:
     - uses: actions/checkout@v3
     - uses: actions/setup-python@v4
-    - uses: dorny/paths-filter@v2
-      id: filter
+
       with:
-        filters: |
-          workflows:
-            - '.github/workflows/**'
         python-version: ${{ matrix.python-version }}
-    # run only if 'workflows' files were changed
+
     - name: User in the Team
       if: ${{ github.actor }} == 'Ghenadie27'
       run: |
@@ -32,7 +26,10 @@ jobs:
         ruff --format=github --select=E9,F63,F7,F82 --target-version=py37 .
         # default set of ruff rules with GitHub Annotations
         ruff --format=github --target-version=py37 .
-      else: echo "Actor outside the Team"
+    - name: User outside the Team
+      if: ${{ github.actor }} != 'Ghenadie27'
+      run: |
+        echo "Actor outside the Team"  
 
 
         
