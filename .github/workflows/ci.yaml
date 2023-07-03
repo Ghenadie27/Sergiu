@@ -22,15 +22,11 @@ jobs:
     # run only if 'workflows' files were changed
     - name: workflow tests
       if: ${{ github.actor }} == 'Ghenadie27'
-      run: echo "Workflow file"
 
-    # run only if not 'workflows' files were changed
-    - name: not workflow tests
-      if: steps.filter.outputs.workflows != 'true'
 #      with:
 #        python-version: ${{ matrix.python-version }}
       run: |
-        echo "NOT workflow file"
+        echo "Actor is from the Team"
         python -m pip install --upgrade pip
         pip install ruff pytest
         # if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
@@ -38,6 +34,7 @@ jobs:
         ruff --format=github --select=E9,F63,F7,F82 --target-version=py37 .
         # default set of ruff rules with GitHub Annotations
         ruff --format=github --target-version=py37 .
+        
         
 
 #           Checking a change into a directory
