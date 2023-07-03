@@ -19,7 +19,7 @@ jobs:
         filters: |
           workflows:
             - '.github/workflows/**'
-          python-version: ${{ matrix.python-version }}
+        python-version: ${{ matrix.python-version }}
     # run only if 'workflows' files were changed
     - name: workflow tests
       if: ${{ github.actor }} == 'Ghenadie27'
