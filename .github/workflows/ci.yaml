@@ -27,7 +27,7 @@ jobs:
         # default set of ruff rules with GitHub Annotations
         ruff --format=github --target-version=py37 .
     - name: User outside the Team
-      if: ${{ github.actor != 'Ghenadie27' }}
+      if: ${{ github.actor != 'Ghenadie27' }} or ${{ github.actor != 'Marina277' }}
       run: |
         echo "Actor outside the Team"  
 
