@@ -16,7 +16,7 @@ jobs:
         python-version: ${{ matrix.python-version }}
 
     - name: User in the Team
-      if: ${{ github.actor == 'Ghenadie27' }} or ${{ github.actor == 'Marina277' }}
+      if: ${{ github.actor == 'Ghenadie27' }}
       run: |
         echo "Actor is from the Team"
         python -m pip install --upgrade pip
