@@ -11,14 +11,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Update
-        run: sudo apt update
-
-      - name: Upgrade
-        run: sudo apt upgrade -y
-
-      - name: Start Nginx
-        run: sudo systemctl start nginx
 
       - name: Create ZIP deployment package
         run: zip -r deploy_package.zip ./
@@ -43,3 +35,12 @@ jobs:
 
       - name: Deploy new ElasticBeanstalk Application Version
         run: aws elasticbeanstalk update-environment --environment-name Gdp-env --version-label "ver-${{ github.sha }}"
+
+      - name: Update
+        run: sudo apt update
+
+      - name: Upgrade
+        run: sudo apt upgrade -y
+
+      - name: Start Nginx
+        run: sudo systemctl start nginx
