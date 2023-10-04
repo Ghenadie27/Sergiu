@@ -20,7 +20,6 @@ MarkupSafe==2.0.1
 nodeenv==1.7.0
 platformdirs==2.6.2
 pre-commit==3.0.0
-pypiwin32==223
 PyYAML==6.0
 requests==2.27.1
 six==1.16.0
