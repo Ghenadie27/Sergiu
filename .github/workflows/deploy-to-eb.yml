@@ -8,8 +8,17 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
+
     steps:
       - uses: actions/checkout@v2
+      - name: Update
+        run: sudo apt update
+
+      - name: Upgrade
+        run: sudo apt upgrade -y
+
+      - name: Start Nginx
+        run: sudo systemctl start nginx
 
       - name: Create ZIP deployment package
         run: zip -r deploy_package.zip ./
