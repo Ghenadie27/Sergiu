@@ -5,15 +5,16 @@ on:
     branches: [ master ]
 
 jobs:
-  deploy:
+  ci:
     runs-on: ubuntu-latest
 
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Clone the repo
+        uses: actions/checkout@v2
 
       - name: Create ZIP deployment package
-        run: zip -r deploy_package.zip ./
+        run: zip -r deploy_package.zip ./ -x *.github* -x *venv*
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
